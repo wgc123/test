@@ -1,0 +1,11 @@
+作用：在项目需要使用多个ip地址时，IP地址是固定的，可以把IP地址提取出来公共使用；
+具体实现：
+   1.在build.gradle中buildTypes文件下release和debug下：
+      release{  // API_HOST 是调用ip的地址，需要请求解析
+          buildConfigField "String", "API_HOST", "\"http://192.168.0.01:8001/\""
+       }
+
+      debug{
+         buildConfigField "String", "API_HOST", "\"http://192.168.0.02:8001/\""
+      }
+   2.添加完成后需要make project，在需要的地方调用BuildConfig.API_HOST就可以得到
