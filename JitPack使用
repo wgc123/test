@@ -1,0 +1,24 @@
+作用：可以从github、码云根据commitId、tag 生成maven依赖，减少代码下载、打包等步骤；
+工具：https://jitpack.io/
+好处：1.将自已library程序一些公有的，可封装的方法提取出来，通过implementation依赖的方法进行利用；
+     2.重复利用，只需要依赖即可；
+操作步骤：
+     1.新建demo，并且新建library；
+     2.在工程build.gradle中添加jitpack版本
+        A.添加jiepack版本
+           classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+        B.在allprojects下repositories中添加：
+            maven { url 'https://jitpack.io' }
+     3.在library下build.gradle中添加配置（下面两行配置代码在我使用可以是固定的）
+        apply plugin: 'com.github.dcendents.android-maven'
+        group='com.github.wgc123'
+     4.上传到github 创建release包
+     5.创建并发布relese （因为我这里已经创建过了所以选择Draft a new release，如果是首次创建那么就是create new release）
+     6.添加网址到JitPack中（复制你的项目的url，即GitHub项目地址）点击Look up
+     7.编译。绿色代表成功，红色代表失败
+
+
+使用jitpack后的依赖
+   1.在buil.gradle中添加
+      maven { url 'https://jitpack.io' }
+   2.在App下build.gradle中依赖编译成功返回的dependency
