@@ -1,0 +1,33 @@
+作用：一个工程需要打包多个apk
+使用：
+   1.添加flavorDimensions
+     defaultConfig {
+             。。。
+             flavorDimensions "default"
+         }
+   2.添加渠道test、test2
+         flavorDimensions "SERVER"
+         productFlavors {
+             test {
+                 dimension "SERVER"
+                 versionCode 5
+                 versionName "1.0.5"
+                 manifestPlaceholders = [host: "192.168.0.202", port: 8018]
+                 buildConfigField "String", "API_HOST", "\"http://192.168.0.202:8001/\""
+             }
+
+             test2 {
+                 dimension "SERVER"
+                 versionCode 3
+                 versionName "1.0.3"
+                 manifestPlaceholders = [host: "192.168.0.10", port: 8018]
+                 buildConfigField "String", "API_HOST", "\"http://192.168.0.10:8001/\""
+             }
+         }
+   3.在AndroidManifest中配置，注意是在application后面
+             <meta-data
+                   android:name="host"
+                   android:value="${host}" />
+             <meta-data
+                   android:name="port"
+                   android:value="${port}" />
