@@ -1,0 +1,82 @@
+1.作用：提供 需在后台长期运行的服务 复杂计算、音乐播放、下载等；
+2.特点：无用户界面、在后台运行、生命周期长；
+3.生命周期：
+   3.1：4手动调用的方法：
+      手动调用方法 	     作用
+      startService() 	启动服务
+      stopService() 	关闭服务
+      bindService() 	绑定服务
+      unbindService() 	解绑服务
+   3.2：5个自动调用的方法：
+      内部自动调用的方法 	 作用
+      onCreat() 	    创建服务
+      onStartCommand() 	开始服务
+      onDestroy() 	    销毁服务
+      onBind() 	        绑定服务
+      onUnbind() 	    解绑服务
+   注意：1.startService、stopService只能开启或关闭service，不能操作service；
+        2.bindService、unbindService 除了绑定service还能操作service；
+        关于service何时销毁：
+        1.startService开启service后，调用者退出后还存在service；
+        2.bindService开启service后，调用者退出后service跟随调用者退出；
+   3.3 在AndroidManifest 中注册service常见属性：
+        属性 	                 说明 	                                              备注
+        android:name 	      Service的类名
+        android:label         Service的名字 	                                   若不设置，默认为Service类名
+        android:icon 	      Service的图标
+        android:permission 	  申明此Service的权限 	                           有提供了该权限的应用才能控制或连接此服务
+        android:process 	  表示该服务是否在另一个进程中运行（远程服务) 	           不设置默认为本地服务；remote则设置成远程服务
+        android:enabled 	  系统默认启动 	                         true：Service 将会默认被系统启动；不设置则默认为false
+        android:exported 	  该服务是否能够被其他应用程序所控制或连接 	              不设置默认此项为 false
+
+4.Service 与 Thread的区别
+     4.1 结论：Service 与 Thread 无任何关系
+     4.2 之所以有不少人会把它们联系起来，主要因为Service的后台概念
+         后台：后台任务运行完全不依赖UI，即使Activity被销毁 / 程序被关闭，只要进程还在，后台任务就可继续运行
+     4.3 区别：
+         4.3.1 相同点：执行异步操作；
+               不同点：service是在主线程运行（不处理耗时操作，否则出现anr）；thread是在工作线程；
+              注： 一般会将 Service 和 Thread联合着用，即在Service中再创建一个子线程（工作线程）去处理耗时操作逻辑
+
+5.Service和IntentService的区别
+
+6.分类：
+   6.1：按运行地点分类：本地服务、远程服务；
+        6.1.1：本地服务运行在主线程，主线程被终止后，服务也会终止；
+               远程服务运行在独立进程，常驻在服务后台，不受其它activity影响；
+   6.2：按运行类型分类：前台服务、后台服务；
+        6.2.1：前台Service优先级较高，不会由于系统内存不足而被回收；后台Service优先级较低，
+               当系统出现内存不足情况时，很有可能会被回收
+        6.2.2：前台Service在下拉通知栏有显示通知，但后台Service没有；
+   6.3：按功能分类：可通信服务、不可通信服务；
+        6.3.3：可通信服务：用startService启动，退出后service任然存在； 应用场景：服务不需要activity、service通信；
+               不可通信服务：用bindService启动，退出service后service销毁
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
