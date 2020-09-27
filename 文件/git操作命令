@@ -1,0 +1,18 @@
+git diff 查看所有文件的更改内容，如果只想看某一个activity文件的内容，需要加上完整路劲
+          git diff app/src/main/com/video/conferencing/activity/MainActivity.class
+git checkout 撤销未提交的修改
+git add .  把所有修改过的文件都添加
+git reser HEAD 取消添加命令 后面跟上绝对路劲
+git status
+git log 查看提交记录
+
+1.把本地文件提交到github
+   git init
+   git add test.txt
+   git commit -m "first commit"
+   git remote add origin https://github.com/wgc123/vuedemo.git
+   git pull --rebase origin master
+   git push -u origin master
+
+2.把GitHub项目克隆到本地
+   git clone https://github.com/wgc123/vuedemo.git
