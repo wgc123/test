@@ -1,0 +1,18 @@
+Context 使用
+1.一个应用程序有几个Context？
+  Application、Activity、service都继承content
+
+2.在单例模式中使用Context要注意内存泄漏问题
+  单例模式的生命周期是和应用的生命周期保持一致的，所以在单例模式中使用Context，不能使用Activity Context，
+  需要使用Application Context
+
+3.创建dialog需要使用Activity Context
+  不能使用Application Context，需要使用Activity Context （MainActivity.class）
+
+4.activity的this和getBaseContext()有和区别
+  this指向当前activity，getBaseContext返回ContextWrapper的mBsde
+
+5.getApplication()和getApplicationContext()的区别？
+  相同：都是返回Application()对象，但是他们的作用域不一样
+  getApplication()是activity和service特有的，其它地方不能使用；
+  
