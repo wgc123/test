@@ -1,0 +1,18 @@
+adb 命令：
+ 1.通过命令安装apk:
+   adb install xxx.apk
+ 1.1.通过命令卸载apk:
+   adb uninstall xxx.apk
+ 1.2. 查看安装包信息
+   aapt dump badging PackageName
+ 1.3.强制停止某个应用
+   adb shell am force-top PackageName
+ 1.4.清除某个应用的数据（相当于新安装）
+   adb shell pm clear PackageName
+ 1.5.启动应用
+   adb shell am start -D -n packageName/activity
+
+ 2.获取手机屏幕分辨率：
+   adb shell wm size
+
+ 3.
