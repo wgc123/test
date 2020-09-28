@@ -1,0 +1,30 @@
+1.DeepLink实践原理分析
+  1.1：什么是DeepLink
+          移动端深度链接，简称deeplink。这是一种通过uri链接到app特定位置的一种跳转技术，不单是简单地通过网页、
+       app等打开目标app，还能达到利用传递标识跳转至不同页面的效果。
+
+  1.2：什么是Deferred DeepLink
+       相比DeepLink，它增加了判断APP是否被安装，用户匹配的2个功能；
+       1.当用户点击链接的时候判断APP是否安装，如果用户没有安装时，引导用户跳转到应用商店下载应用。
+       2.用户匹配功能，当用户点击链接时和用户启动APP时，分别将这两次用户Device Fingerprint（设备指纹信息）传到服务器进行模糊匹配，
+         使用户下载且启动APP时，直接打开相应的指定页面。
+
+  1.3：什么是AppLink
+       AppLink相对复杂，需要App与Web协作完成系统验证，但可以保证直接唤起目标App，无需用户二次选择或确认。
+
+  1.4：DeepLink和AppLink核心技术
+     DeepLink和AppLink不同点。下面这个总结很重要！
+     不同点 	             DeepLink 	                     AppLink
+     Intent scheme      	任意 	                   要求http或https
+     Intent action 	     任意Action 	                   要求配置andorid.intent.action.VIEW
+     Intent category 	 任意Category 	 要求配置android.intent.category.BROWSABLE和android.intent
+     .category.DEFAULT
+     链接认证 	         无需验证 	     要求进行Digital Asset Links文件验证
+     用户体验 	    可能展示一个多选项弹窗或确认弹窗，用户需要二次选择或确认 	    无弹窗，直接由App处理链接
+     兼容性 	              所有版本 	                   Android6.0及以上版本
+
+  1.5：
+
+
+
+
