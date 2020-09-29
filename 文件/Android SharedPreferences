@@ -1,0 +1,27 @@
+Android 存储之SharedPreferences
+1.作用：SharedPreferences是一种轻量级的数据存储方式，采用键值对的存储方式。
+       SharedPreferences只能存储少量数据，大量数据不能使用该方式存储，支持存储的数据类型有booleans, floats,
+        ints, longs, andstrings。
+       SharedPreferences存储到一个XML文件中的，路径在/data/data/<packagename>/shared_prefs/
+2.基本用法
+  2.1.获取SharedPreferences对象
+      要创建存储文件或访问已有数据，首先要获取SharedPreferences才能进行操作
+     2.1.1：getSharedPreferences(String name, int mode) --- 通过Context调用该方法获得对象。它有两个参数，
+      第一个name 指定了SharedPreferences存储的文件的文件名，第二个参数mode 指定了操作的模式。这种方式获取的
+      对象创建的文件 可以被整个应用所有组件使用，有指定的文件名；
+
+     2.1.2：getPreferences(int mode) --- 通过Activity调用获得对象。它只有一个参数mode 指定操作模式。这种方式获
+       取的对象创建的文件 属于Activity,只能在该Activity中使用，且没有指定的文件名，文件名同Activity名字；
+
+  2.2.数据更新
+      SharedPreferences添加或更新数据，通过SharedPreferences 获取 SharedPreferences.Editor，操作文件数
+      据，最后通过commit()或apply()提交修改；
+
+      commit()和apply()区别：
+       apply()立即更改内存中的SharedPreferences对象，但异步地将更新写入磁盘。commit()同步地将数据写入磁盘。
+       commit()是同步的，在主线程调用它应该多注意，因为可能引起阻塞，引起ANR。
+       commit()有返回值，返回是否成功写入永久性存储种。apply()没有返回值。
+
+  2.3.数据获取。
+      通过SharedPreferences提供的getInt(),getString()等方法获取 文件中的数据，如果数据不存在，则返回一个默认值。
+
