@@ -104,4 +104,12 @@ public class DatabaseActivity extends BaseActivity implements View.OnClickListen
 
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (sqLiteDatabase != null){
+            sqLiteDatabase.close();
+        }
+    }
 }
