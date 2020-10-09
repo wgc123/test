@@ -11,7 +11,7 @@ import com.uuzuche.lib_zxing.activity.ZXingLibrary;
  * @author : wgc
  * @e-mail : 786722510@qq.com
  * @date : 2020/10/9 9:58
- * @desc :
+ * @desc : Application 初始化
  */
 public class App extends Application {
 
