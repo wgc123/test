@@ -21,6 +21,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -32,4 +37,19 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':testlibrary')
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // 二维码
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+    implementation 'pub.devrel:easypermissions:0.2.0'
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    // 申请权限
+    implementation 'com.hjq:xxpermissions:8.6'
+
+    // toast
+    implementation 'com.hjq:toast:8.6'
+
 }
