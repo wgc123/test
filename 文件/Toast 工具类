@@ -1,0 +1,11 @@
+Toast使用：
+   1.  // toast 依赖
+      implementation 'com.hjq:toast:8.6'
+   2.在Application中初始化：
+      // 初始化Toast并设置位置
+        ToastUtils.init(this);
+        ToastUtils.setGravity(Gravity.BOTTOM, 0, 0);
+      // 自定义Toast样式
+        ToastUtils.initStyle(new ToastBlackStyle(this));
+   3.混淆：
+      -keep class com.hjq.toast.** {*;}
