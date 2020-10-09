@@ -29,24 +29,17 @@ public class FragmentActivity extends BaseActivity {
 
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
-
     @BindArray(R.array.tab_array)
     String[] mTabTitles;
-
     @BindView(R.id.tab_weixin)
     TabView mTabWeixin;
-
     @BindView(R.id.tab_contact)
     TabView mTabContact;
-
     @BindView(R.id.tab_find)
     TabView mTabFind;
-
     @BindView(R.id.tab_profile)
     TabView mTabProfile;
-
     private List<TabView> mTabViews = new ArrayList<>();
-
     private static final int INDEX_WEIXIN = 0;
     private static final int INDEX_CONTACT = 1;
     private static final int INDEX_FIND = 2;
@@ -69,7 +62,6 @@ public class FragmentActivity extends BaseActivity {
         mTabViews.add(mTabContact);
         mTabViews.add(mTabFind);
         mTabViews.add(mTabProfile);
-
         mViewPager.setOffscreenPageLimit(mTabTitles.length - 1);
         mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {

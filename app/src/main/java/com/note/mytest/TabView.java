@@ -1,5 +1,6 @@
 package com.note.mytest;
 
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -8,8 +9,14 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
+
+/**
+ * @author wgc
+ * 视图标签
+ */
 public class TabView extends FrameLayout {
     private ImageView mNormalImageView;
     private ImageView mSelectedImageView;
@@ -35,7 +42,6 @@ public class TabView extends FrameLayout {
         for (int i = 0; i < a.getIndexCount(); i++) {
             int attr = a.getIndex(i);
             switch (attr) {
-
                 case R.styleable.TabView_tabColor:
                     // 获取标题和轮廓最终的着色
                     mTargetColor = a.getColor(attr, DEFAULT_TAB_TARGET_COLOR);
