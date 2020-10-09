@@ -23,6 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * 说明：activity 基类
  * 作者：王贵才
@@ -40,7 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         ActivityCollector.addActivity(this);         //activity统一管理
         this.getWindow().setFlags(0x80000000,0x80000000);
         setContentView(initLayout());
-//        ButterKnife.bind(this);   动态加载初始化控件
+        // 动态加载初始化控件
+        ButterKnife.bind(this);
         // 设置布局的方向
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         //设置数据
