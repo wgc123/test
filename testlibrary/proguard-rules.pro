@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# toast 吐司混淆
+-keep class com.hjq.toast.** {*;}
