@@ -1,0 +1,28 @@
+监听网络状态：
+  1.依赖：
+    implementation 'com.sunchen:netstatusbus:0.1.4'
+  2.AndroidManifest中添加网络权限：
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  3.初始化网络监听：onStart生命周期中或onResume()
+    NetStatusBus.getInstance().init(this);
+  4.注册监听网络状态：onStop()或 onDestroy() 最好在onStop()注销
+    NetStatusBus.getInstance().register(this);
+  5.销毁监听网络状态：
+    NetStatusBus.getInstance().unregister(this);
+  6.监听网络：
+        /**
+         * 监听网络
+         * @param netType 会返回当前的网络类型为 NetType.WIFI 还是 NetType.MOBILE 或者NetType.NONE
+         */
+        @NetSubscribe()
+        public void doSometing(NetType netType) {
+            WGCLogUtils.i(netType.name());
+            if (netType.name().equals("WIFI")){
+                ToastUtils.show("当前切换到WIFI");
+            }else if (netType.name().equals("MOBILE")){
+                ToastUtils.show("当前切换到数据网络");
+            }else if (netType.name().equals("NONE")){
+                ToastUtils.show("没有网络连接");
+            }
+
+        }
