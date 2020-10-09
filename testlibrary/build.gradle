@@ -42,4 +42,14 @@ dependencies {
     // 日期选择对话框
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
 
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    // toast
+    implementation 'com.hjq:toast:8.6'
+
+    // 二维码
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+    implementation 'pub.devrel:easypermissions:0.2.0'
+
 }
