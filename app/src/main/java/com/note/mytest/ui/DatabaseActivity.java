@@ -1,6 +1,4 @@
-package com.note.mytest;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.note.mytest.ui;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -10,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.note.mytest.R;
 import com.note.testlibrary.tool.BaseActivity;
 import com.note.testlibrary.tool.DatabaseHelper;
 import com.note.testlibrary.tool.WGCLogUtils;
