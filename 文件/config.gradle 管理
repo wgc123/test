@@ -1,0 +1,7 @@
+config.gradle 管理使用：
+ 1.在项目的build.gradle文件中引入
+    apply from: "config.gradle"
+    这样使用config中的配置就可以管理所有module中的配置了
+ 2.在app的build.gradle中:
+ // 使用格式 rootProject固定
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
