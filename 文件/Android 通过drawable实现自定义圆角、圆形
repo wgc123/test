@@ -1,0 +1,124 @@
+1.实现圆角：
+public class RoundImageDrawable extends Drawable {
+    private Paint mPaint;
+    private Bitmap mBitmap;
+    private RectF rectF;
+
+    public RoundImageDrawable(Bitmap bitmap) {
+        mBitmap = bitmap;
+        BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setShader(bitmapShader);
+    }
+
+    @Override
+    public void setBounds(int left, int top, int right, int bottom) {
+        super.setBounds(left, top, right, bottom);
+        rectF = new RectF(left, top, right, bottom);
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        canvas.drawRoundRect(rectF, 30, 30, mPaint);
+    }
+
+    @Override
+    public int getIntrinsicWidth() {
+        return mBitmap.getWidth();
+    }
+
+    @Override
+    public int getIntrinsicHeight() {
+        return mBitmap.getHeight();
+    }
+
+    @Override
+    public void setAlpha(int alpha) {
+        mPaint.setAlpha(alpha);
+    }
+
+    @Override
+    public void setColorFilter(ColorFilter cf) {
+        mPaint.setColorFilter(cf);
+    }
+
+    @Override
+    public int getOpacity() {
+        return PixelFormat.TRANSLUCENT;
+    }
+
+    /**
+     * 使用 用法
+     * Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+     * 				R.drawable.mv);
+     * 		ImageView iv = (ImageView) findViewById(R.id.id_one);
+     * 		iv.setImageDrawable(new RoundImageDrawable(bitmap));
+     */
+
+}
+
+2.实现圆形：
+  public class CircleImageDrawable     extends Drawable
+  {
+
+      private Paint mPaint;
+      private int mWidth;
+      private Bitmap mBitmap ;
+
+      public CircleImageDrawable(Bitmap bitmap)
+      {
+          mBitmap = bitmap ;
+          BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP,
+                  Shader.TileMode.CLAMP);
+          mPaint = new Paint();
+          mPaint.setAntiAlias(true);
+          mPaint.setShader(bitmapShader);
+          mWidth = Math.min(mBitmap.getWidth(), mBitmap.getHeight());
+      }
+
+      @Override
+      public void draw(Canvas canvas)
+      {
+          canvas.drawCircle(mWidth / 2, mWidth / 2, mWidth / 2, mPaint);
+      }
+
+      @Override
+      public int getIntrinsicWidth()
+      {
+          return mWidth;
+      }
+
+      @Override
+      public int getIntrinsicHeight()
+      {
+          return mWidth;
+      }
+
+      @Override
+      public void setAlpha(int alpha)
+      {
+          mPaint.setAlpha(alpha);
+      }
+
+      @Override
+      public void setColorFilter(ColorFilter cf)
+      {
+          mPaint.setColorFilter(cf);
+      }
+
+      @Override
+      public int getOpacity()
+      {
+          return PixelFormat.TRANSLUCENT;
+      }
+
+      /**
+       * 使用 用法
+       * Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+       * 				R.drawable.mv);
+       * 		ImageView iv = (ImageView) findViewById(R.id.id_one);
+       * 		iv.setImageDrawable(new RoundImageDrawable(bitmap));
+       */
+
+  }
