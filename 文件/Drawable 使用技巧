@@ -1,0 +1,42 @@
+Drawable 使用：自定义背景颜色等
+  https://juejin.im/post/6844903519753863181
+ 1.简单使用 shape
+   <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <!--    圆角按钮 corners圆角-->
+       <corners android:radius="5dp"/>
+       <solid android:color="@color/colorPrimary"/>
+
+   <!--   stroke 用于设置边框，可以指定颜色和边框的宽度-->
+       <stroke android:color="#fff" android:width="1dp"/>
+
+   </shape>
+
+ 2.单边边框：layer-list
+    eg:如果使用 stroke 来设置边框，它会在四周都加上边框，但是有时候，我们只需要在底部或者单边绘制一个边框的效果，例如：一个列表页里每一项的分割线。
+       这个时候，就可以使用 ，使用两个 shape 来叠加实现。
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--    单边边框-->
+        <item>
+            <shape>
+    <!--            显示一条灰线-->
+                <solid android:color="#e5e5e5"/>
+            </shape>
+        </item>
+        <item android:bottom="1px">
+            <shape>
+                <solid android:color="#ffffff"/>
+            </shape>
+        </item>
+    </layer-list>
+
+ 3.渐变 gradient标签
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <gradient android:angle="90"
+             android:startColor="@color/colorPrimary"
+             android:gradientRadius="20dp"
+            android:endColor="@color/colorAccent"
+            android:type="linear"/>
+    </shape>
