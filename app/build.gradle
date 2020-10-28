@@ -52,4 +52,15 @@ dependencies {
     // toast
     implementation 'com.hjq:toast:8.6'
 
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+
+    implementation 'com.sunchen:netstatusbus:0.1.4'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okio:okio:2.5.0'
+
 }
