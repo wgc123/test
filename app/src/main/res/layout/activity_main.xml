@@ -1,49 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
-    <Button
-        android:id="@+id/start_service"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开启服务" />
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/start_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开启服务" />
 
-    <Button
-        android:id="@+id/stop_service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="停止服务" />
+        <Button
+            android:id="@+id/stop_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="停止服务" />
 
-    <Button
-        android:id="@+id/bindService"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="绑定服务" />
+        <Button
+            android:id="@+id/bindService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="绑定服务" />
 
-    <Button
-        android:id="@+id/unbindService"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="解绑服务"
-        />
+        <Button
+            android:id="@+id/unbindService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="解绑服务"
+            />
 
-    <Button
-        android:id="@+id/btn_shared_preferences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SharedPreferences"
-        android:textAllCaps="false"
-        />
+        <Button
+            android:id="@+id/btn_shared_preferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SharedPreferences"
+            android:textAllCaps="false"
+            />
 
-    <Button
-        android:id="@+id/btn_database"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="测试数据库操作"
-        />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_zxingg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="二维码操作"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="仿微信界面"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="申请权限"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="处理重复点击"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_scwang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="scwang 下拉刷新"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_okhttp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="okhttp 请求"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/btn_database"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试数据库操作"
+            />
+
+        <Button
+            android:id="@+id/btn_html"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android 加载HTML"
+            />
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+</ScrollView>
