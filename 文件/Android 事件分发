@@ -1,0 +1,57 @@
+
+1.EventBus:
+  依赖：
+  implementation 'org.greenrobot:eventbus:3.2.0'
+
+  使用：
+    1.新建bean文件：要传递参数的字段
+      public class EventBean {
+          public final String message;
+
+          public static EventBean getInstance(String message) {
+              return new EventBean(message);
+          }
+
+          private EventBean(String message){
+              this.message = message;
+          }
+      }
+    2.在main界面注册：
+       /**
+           * 注册eventbus
+           */
+          @Override
+          protected void onStart() {
+              super.onStart();
+              EventBus.getDefault().register(this);
+          }
+
+          /**
+           * 释放eventbus
+           */
+          @Override
+          protected void onStop() {
+              super.onStop();
+              EventBus.getDefault().unregister(this);
+          }
+    3.写一个接受传递过来的EventBean消息
+          /**
+             * 接受传递消息
+             * @param message
+             */
+            @Subscribe(threadMode = ThreadMode.MAIN)
+            public void getMessage(EventBean message) {
+                Log.i("event", message.message);
+                tvMessage.setText(message.message);
+            }
+
+     4.在eventActivity中发布消息：
+        EventBus.getDefault().post(EventBean.getInstance("我是在event界面传递过来的"));
+
+2.RxJava:
+   依赖：
+        //RxJava的依赖包
+        implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+        //RxAndroid的依赖包
+        implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+

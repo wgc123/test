@@ -106,6 +106,32 @@
             android:text="Android 加载HTML"
             />
 
+        <Button
+            android:id="@+id/btn_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通过drawable自定义圆角、圆形"
+            />
+
+        <Button
+            android:id="@+id/btn_eventbus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="eventbus"
+            />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下一个" />
+
+        <Button
+            android:id="@+id/btn_jiaozi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="饺子视频" />
+
         <TextView
             android:id="@+id/tv_show"
             android:layout_width="match_parent"

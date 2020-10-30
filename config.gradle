@@ -1,0 +1,79 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            applicationId    : "com.note.mytest", // 包名
+            minSdkVersion    : 23,                // 最低版本
+            targetSdkVersion : 26,                // 最高版本
+            versionCode      : 1,                 // 版本号
+            versionName      : "1.0"              // 版本名称
+    ]
+
+    dependVersion = [
+            appcompat = "1.2.0",
+            constraintlayout = "2.0.1",
+            junit = "4.12",
+            test = "1.1.2",
+            espresso = "3.3.0",
+            recyclerview = "1.1.0",
+            zxing = "2.2",
+            easypermissions = "0.2.0",
+            butterknife = "10.2.1",
+            xxpermissions = "8.6",
+            toast = "8.6",
+            netstatusbus = "0.1.4",
+            scwang = "2.0.1",
+            okhttp3 = "4.5.0",
+            okio = "2.5.0",
+            gson = "2.8.5"
+    ]
+
+    dependencies = [
+
+            // appcompat
+            "appcompat"       : "androidx.appcompat:appcompat:${dependVersion.appcompat}",
+            "constraintlayout": "androidx.constraintlayout:constraintlayout:${dependVersion.constraintlayout}"
+            ,
+            "junit"           : "junit:junit:${dependVersion.junit}",
+            "test"            : "androidx.test.ext:junit:${dependVersion.test}",
+            "espresso"        : "androidx.test.espresso:espresso-core:${dependVersion.espresso}",
+
+            //recyclerview
+            "recyclerview"    : "androidx.recyclerview:recyclerview:${dependVersion.recyclerview}",
+
+            // 二维码
+            "zxing"           : "cn.yipianfengye.android:zxing-library:${dependVersion.zxing}",
+            "easypermissions" : "pub.devrel:easypermissions:${dependVersion.easypermissions}",
+
+            // butterknife
+            "butterknife"     : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+            "compiler"        : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+
+            // 申请权限
+            "xxpermissions"   : "com.hjq:xxpermissions:${dependVersion.xxpermissions}",
+
+            // toast 吐司
+            "toast"           : "com.hjq:toast:${dependVersion.toast}",
+
+            //监听网络
+            "netstatusbus"    : "com.sunchen:netstatusbus:${dependVersion.netstatusbus}",
+
+            // 下拉刷新
+            "kernel"          : "com.scwang.smart:refresh-layout-kernel:${dependVersion.scwang}",
+            "classics"        : "com.scwang.smart:refresh-header-classics:${dependVersion.scwang}",
+            "radar"           : "com.scwang.smart:refresh-header-radar:${dependVersion.scwang}",
+            "falsify"         : "com.scwang.smart:refresh-header-falsify:${dependVersion.scwang}",
+            "material"        : "com.scwang.smart:refresh-header-material:${dependVersion.scwang}",
+            "level"           : "com.scwang.smart:refresh-header-two-level:${dependVersion.scwang}",
+            "ball"            : "com.scwang.smart:refresh-footer-ball:${dependVersion.scwang}",
+            "classics"        : "com.scwang.smart:refresh-footer-classics:${dependVersion.scwang}",
+
+            // okhttp 网络请求
+            "okhttp"          : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp3}",
+            "okio"            : "com.squareup.okio:okio:${dependVersion.okio}",
+
+            // gson 解析
+            "gson"            : "com.google.code.gson:gson:${dependVersion.gson}"
+
+    ]
+}

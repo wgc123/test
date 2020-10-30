@@ -2,9 +2,9 @@ Android Studio设置代码作者模版
 
   设置路径：File => Settings => Editor => File and Code Templates=>Includes=>File Header
     /**
-     *    author : wgc
-     *    e-mail : 786722510@qq.com
-     *    date   : ${DATE} ${TIME}
-     *    desc   :
+     *    @author : wgc
+     *    @e-mail : 786722510@qq.com
+     *    @date   : ${DATE} ${TIME}
+     *    @desc   :
      */
    点击"apply"，重新新建class就会出现

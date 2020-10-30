@@ -1,19 +1,15 @@
 package com.note.mytest.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.TestLooperManager;
-import android.text.style.DynamicDrawableSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
@@ -26,6 +22,7 @@ import com.note.mytest.okhttp.Data;
 import com.note.mytest.okhttp.HttpCallback;
 import com.note.mytest.okhttp.HttpHelper;
 import com.note.mytest.tool.ClickProxy;
+import com.note.testlibrary.tool.BaseActivity;
 import com.note.testlibrary.tool.MyService;
 import com.note.testlibrary.tool.WGCLogUtils;
 import com.note.testlibrary.tool.WGCSharedPreferencesUtils;
@@ -39,17 +36,55 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-import kotlin.LateinitKt;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
- *    @author : wgc
- *    @e-mail : 786722510@qq.com
- *    @date   : ${DATE} ${TIME}
- *    @desc   :
+ * @author : wgc
+ * @e-mail : 786722510@qq.com
+ * @date : ${DATE} ${TIME}
+ * @desc :
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+    private static final String URL_HTTP = "https://www.wanandroid.com/wxarticle/chapters/json";
 
     MyService.MyBinder myBinder;
+    @BindView(R.id.start_service)
+    Button startService;
+    @BindView(R.id.stop_service)
+    Button stopService;
+    @BindView(R.id.bindService)
+    Button bindService;
+    @BindView(R.id.unbindService)
+    Button unbindService;
+    @BindView(R.id.btn_shared_preferences)
+    Button btnSharedPreferences;
+    @BindView(R.id.btn_zxingg)
+    Button btnZxingg;
+    @BindView(R.id.btn_fragment)
+    Button btnFragment;
+    @BindView(R.id.btn_permissions)
+    Button btnPermissions;
+    @BindView(R.id.btn_click)
+    Button btnClick;
+    @BindView(R.id.btn_scwang)
+    Button btnScwang;
+    @BindView(R.id.btn_okhttp)
+    Button btnOkhttp;
+    @BindView(R.id.btn_database)
+    Button btnDatabase;
+    @BindView(R.id.btn_html)
+    Button btnHtml;
+    @BindView(R.id.btn_drawable)
+    Button btnDrawable;
+    @BindView(R.id.btn_eventbus)
+    Button btnEventbus;
+    @BindView(R.id.next)
+    Button next;
+    @BindView(R.id.btn_jiaozi)
+    Button btnJiaoZi;
+    @BindView(R.id.tv_show)
+    TextView textView;
     /**
      * 创建ServiceConnection的匿名类
      */
@@ -71,140 +106,98 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private TextView textView;
+    @Override
+    protected int initLayout() {
+        return R.layout.activity_main;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.tv_show);
-        findViewById(R.id.start_service).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //构建启动服务的Intent对象
-                Intent startIntent = new Intent(MainActivity.this, MyService.class);
-                //调用startService()方法-传入Intent对象,以此启动服务
-                startService(startIntent);
-            }
-        });
+    protected void initData() {
 
-        findViewById(R.id.stop_service).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //构建启动服务的Intent对象
-                Intent startIntent = new Intent(MainActivity.this, MyService.class);
-                //调用startService()方法-传入Intent对象,以此启动服务
-                stopService(startIntent);
-            }
-        });
+    }
 
-        findViewById(R.id.bindService).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @OnClick({R.id.start_service, R.id.stop_service, R.id.bindService, R.id.unbindService, R.id.btn_shared_preferences,
+            R.id.btn_zxingg, R.id.btn_fragment, R.id.btn_permissions, R.id.btn_click, R.id.btn_scwang, R.id.btn_okhttp,
+            R.id.btn_database, R.id.btn_html, R.id.btn_drawable, R.id.btn_eventbus, R.id.next,R.id.btn_jiaozi})
+    public void onViewClicked(View view) {
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.start_service:
+                //构建启动服务的Intent对象
+                intent = new Intent(MainActivity.this, MyService.class);
+                //调用startService()方法-传入Intent对象,以此启动服务
+                startService(intent);
+                break;
+            case R.id.stop_service:
+                //构建启动服务的Intent对象
+                intent = new Intent(MainActivity.this, MyService.class);
+                //调用startService()方法-传入Intent对象,以此启动服务
+                stopService(intent);
+                break;
+            case R.id.bindService:
                 //构建绑定服务的Intent对象
-                Intent bindIntent = new Intent(MainActivity.this, MyService.class);
+                intent = new Intent(MainActivity.this, MyService.class);
                 //调用bindService()方法,以此停止服务
-                bindService(bindIntent,connection,BIND_AUTO_CREATE);
+                bindService(intent, connection, BIND_AUTO_CREATE);
                 //参数说明
                 //第一个参数:Intent对象
                 //第二个参数:上面创建的Serviceconnection实例
                 //第三个参数:标志位
                 //这里传入BIND_AUTO_CREATE表示在Activity和Service建立关联后自动创建Service
                 //这会使得MyService中的onCreate()方法得到执行，但onStartCommand()方法不会执行
-            }
-        });
-
-        findViewById(R.id.unbindService).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.unbindService:
                 //调用unbindService()解绑服务
                 //参数是上面创建的Serviceconnection实例
                 unbindService(connection);
-            }
-        });
-
-        findViewById(R.id.btn_shared_preferences).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              String show =
-                      WGCSharedPreferencesUtils.getInstance(MainActivity.this).getSharedPreferencesParam("test", "name");
+                break;
+            case R.id.btn_shared_preferences:
+                String show = WGCSharedPreferencesUtils.getInstance(MainActivity.this).getSharedPreferencesParam("test", "name");
                 WGCLogUtils.i("获取存储信息：" + show);
-            }
-        });
-
-        findViewById(R.id.btn_zxingg).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ZxingActivity.class);
+                break;
+            case R.id.btn_zxingg:
+                intent = new Intent(MainActivity.this, ZxingActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.btn_fragment).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FragmentActivity.class);
+                break;
+            case R.id.btn_fragment:
+                intent = new Intent(MainActivity.this, FragmentActivity.class);
                 startActivity(intent);
-            }
-        });
+                break;
+            case R.id.btn_permissions:
+                XXPermissions.with(MainActivity.this).permission(Permission.CAMERA).permission(Permission.RECORD_AUDIO).permission(Permission.READ_PHONE_STATE).permission(Permission.WRITE_EXTERNAL_STORAGE).permission(Permission.READ_EXTERNAL_STORAGE).permission(Permission.Group.CALENDAR).request(new OnPermission() {
+                    @Override
+                    public void hasPermission(List<String> granted, boolean all) {
+                        if (all) {
+                            WGCLogUtils.d("获取存储和拍照权限成功");
+                            ToastUtils.show("获取存储和拍照权限成功");
+                        } else {
+                            WGCLogUtils.d("获取权限成功，部分权限未正常授予");
+                            ToastUtils.show("获取权限成功，部分权限未正常授予");
+                        }
+                    }
 
-        findViewById(R.id.btn_permissions).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                XXPermissions.with(MainActivity.this)
-                        .permission(Permission.CAMERA)
-                        .permission(Permission.RECORD_AUDIO)
-                        .permission(Permission.READ_PHONE_STATE)
-                        .permission(Permission.WRITE_EXTERNAL_STORAGE)
-                        .permission(Permission.READ_EXTERNAL_STORAGE)
-                        .permission(Permission.Group.CALENDAR)
-                        .request(new OnPermission() {
-                            @Override
-                            public void hasPermission(List<String> granted, boolean all) {
-                                if (all) {
-                                    WGCLogUtils.d("获取存储和拍照权限成功");
-                                    ToastUtils.show("获取存储和拍照权限成功");
-                                } else {
-                                    WGCLogUtils.d("获取权限成功，部分权限未正常授予");
-                                    ToastUtils.show("获取权限成功，部分权限未正常授予");
-                                }
-                            }
-
-                            @Override
-                            public void noPermission(List<String> denied, boolean never) {
-                                if (never) {
-                                    WGCLogUtils.d("被永久拒绝授权，请手动授予存储和拍照权限");
-                                    ToastUtils.show("被永久拒绝授权，请手动授予");
-                                    // 如果是被永久拒绝就跳转到应用权限系统设置页面
-                                    XXPermissions.startPermissionActivity(MainActivity.this, denied);
-                                } else {
-                                    WGCLogUtils.d("获取存储和拍照权限失败");
-                                    ToastUtils.show("获取存储和拍照权限失败");
-                                }
-                            }
-                        });
-            }
-        });
-
-        findViewById(R.id.btn_click).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                    @Override
+                    public void noPermission(List<String> denied, boolean never) {
+                        if (never) {
+                            WGCLogUtils.d("被永久拒绝授权，请手动授予存储和拍照权限");
+                            ToastUtils.show("被永久拒绝授权，请手动授予");
+                            // 如果是被永久拒绝就跳转到应用权限系统设置页面
+                            XXPermissions.startPermissionActivity(MainActivity.this, denied);
+                        } else {
+                            WGCLogUtils.d("获取存储和拍照权限失败");
+                            ToastUtils.show("获取存储和拍照权限失败");
+                        }
+                    }
+                });
+                break;
+            case R.id.btn_click:
                 ToastUtils.show("防止多次点击事件");
-            }
-        }));
-
-        findViewById(R.id.btn_scwang).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ScwangActivity.class);
+                break;
+            case R.id.btn_scwang:
+                intent = new Intent(MainActivity.this, ScwangActivity.class);
                 startActivity(intent);
-            }
-        }));
-
-
-        findViewById(R.id.btn_okhttp).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.btn_okhttp:
                 HttpHelper.obtain().get(URL_HTTP, null, new HttpCallback<Data>() {
                     @Override
                     public void onFailed(final String msg) {
@@ -228,42 +221,36 @@ public class MainActivity extends AppCompatActivity {
                         });
                     }
                 });
-            }
-        }));
-
-        findViewById(R.id.btn_database).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DatabaseActivity.class);
+                break;
+            case R.id.btn_database:
+                intent = new Intent(MainActivity.this, DatabaseActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.btn_html).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HtmlActivity.class);
+                break;
+            case R.id.btn_html:
+                intent = new Intent(MainActivity.this, HtmlActivity.class);
                 startActivity(intent);
-            }
-        }));
-
-        findViewById(R.id.btn_drawable).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DrawableActivity.class);
+                break;
+            case R.id.btn_drawable:
+                intent = new Intent(MainActivity.this, DrawableActivity.class);
                 startActivity(intent);
-            }
-        }));
-
-        findViewById(R.id.btn_eventbus).setOnClickListener(new ClickProxy(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.btn_eventbus:
                 EventBus.getDefault().post(EventBean.getInstance("我是在main主界面传递过来的"));
-                Intent intent = new Intent(MainActivity.this, EventBusActivity.class);
+                intent = new Intent(MainActivity.this, EventBusActivity.class);
                 startActivity(intent);
-            }
-        }));
-
+                break;
+            case R.id.next:
+                intent = new Intent(MainActivity.this, NextActivity.class);
+                intent.putExtra("index", 0);
+                startActivity(intent);
+                break;
+            case R.id.btn_jiaozi:
+                intent = new Intent(MainActivity.this, JiaoZiMainActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -279,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(message.message);
     }
 
-    private static final String URL_HTTP = "https://www.wanandroid.com/wxarticle/chapters/json";
 
     @Override
     protected void onResume() {
@@ -314,16 +300,17 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 监听网络
+     *
      * @param netType 会返回当前的网络类型为 NetType.WIFI 还是 NetType.MOBILE 或者NetType.NONE
      */
     @NetSubscribe()
     public void doSometing(NetType netType) {
         WGCLogUtils.i(netType.name());
-        if (netType.name().equals("WIFI")){
+        if (netType.name().equals("WIFI")) {
             ToastUtils.show("当前切换到WIFI");
-        }else if (netType.name().equals("MOBILE")){
+        } else if (netType.name().equals("MOBILE")) {
             ToastUtils.show("当前切换到数据网络");
-        }else if (netType.name().equals("NONE")){
+        } else if (netType.name().equals("NONE")) {
             ToastUtils.show("没有网络连接");
         }
 
@@ -333,6 +320,7 @@ public class MainActivity extends AppCompatActivity {
      * 声明一个long类型变量：用于存放上一点击“返回键”的时刻
      */
     private long mExitTime;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //判断用户是否点击了“返回键”
@@ -351,5 +339,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
 }

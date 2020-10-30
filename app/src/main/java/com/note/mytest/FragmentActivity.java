@@ -1,14 +1,23 @@
 package com.note.mytest;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.hjq.toast.ToastUtils;
+import com.note.mytest.fragment.FXianFragment;
+import com.note.mytest.fragment.TXLUFragment;
+import com.note.mytest.fragment.WXinFragment;
+import com.note.mytest.fragment.WoFragment;
 import com.note.testlibrary.tool.BaseActivity;
 
 import java.util.ArrayList;
@@ -39,6 +48,8 @@ public class FragmentActivity extends BaseActivity {
     TabView mTabFind;
     @BindView(R.id.tab_profile)
     TabView mTabProfile;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private List<TabView> mTabViews = new ArrayList<>();
     private static final int INDEX_WEIXIN = 0;
     private static final int INDEX_CONTACT = 1;
@@ -58,6 +69,8 @@ public class FragmentActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
         mTabViews.add(mTabWeixin);
         mTabViews.add(mTabContact);
         mTabViews.add(mTabFind);
@@ -80,6 +93,39 @@ public class FragmentActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_top_more, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_search:
+                ToastUtils.show("搜索");
+                break;
+            case R.id.menu_group_chat:
+                ToastUtils.show("发起群聊");
+                break;
+            case R.id.menu_add_friend:
+                ToastUtils.show("添加朋友");
+                break;
+            case R.id.menu_scan:
+                ToastUtils.show("扫一扫");
+                break;
+            case R.id.menu_receive_payment:
+                ToastUtils.show("收付款");
+                break;
+            case R.id.menu_help:
+                ToastUtils.show("帮助与反馈");
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     private void updateCurrentTab(int index) {
@@ -116,6 +162,9 @@ public class FragmentActivity extends BaseActivity {
         }
     }
 
+    /**
+     * FragmentPagerAdapter
+     */
     private class MyPagerAdapter extends FragmentPagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -132,24 +181,29 @@ public class FragmentActivity extends BaseActivity {
         }
     }
 
-
+    /**
+     *
+     * @param index 导航下标
+     * @param title 导航
+     * @return
+     */
     private Fragment getTabFragment(int index, String title) {
         Fragment fragment = null;
         switch (index) {
             case INDEX_WEIXIN:
-                fragment = new OneFragment();
+                fragment = new WXinFragment();
                 break;
 
             case INDEX_CONTACT:
-                fragment = new OneFragment();
+                fragment = new TXLUFragment();
                 break;
 
             case INDEX_FIND:
-                fragment = new OneFragment();
+                fragment = new FXianFragment();
                 break;
 
             case INDEX_PROFILE:
-                fragment = new OneFragment();
+                fragment = new WoFragment();
                 break;
             default:
                 break;

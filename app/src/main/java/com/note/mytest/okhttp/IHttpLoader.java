@@ -11,7 +11,6 @@ import java.util.Map;
 public interface IHttpLoader {
     /**
      * GET方式请求
-     *
      * @param url
      * @param params
      * @param callback
@@ -20,7 +19,6 @@ public interface IHttpLoader {
 
     /**
      * POST方式请求
-     *
      * @param url
      * @param params
      * @param callback

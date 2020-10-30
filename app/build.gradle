@@ -10,7 +10,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,7 +24,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }
 
 dependencies {
@@ -36,31 +34,65 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // 依赖模块
     implementation project(path: ':testlibrary')
+
+    // recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    // 二维码
+    // 二维码的依赖包
     implementation 'cn.yipianfengye.android:zxing-library:2.2'
     implementation 'pub.devrel:easypermissions:0.2.0'
 
+    // Butterknife的依赖包
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
-    // 申请权限
+    // 申请权限的依赖包
     implementation 'com.hjq:xxpermissions:8.6'
 
-    // toast
+    // toast的依赖包
     implementation 'com.hjq:toast:8.6'
 
+    //smart上下刷新的依赖包
     implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
     implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
     implementation 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
 
+    // 监听网络的依赖包
     implementation 'com.sunchen:netstatusbus:0.1.4'
 
+    //gson的依赖包
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    // okhttp的依赖包
     implementation 'com.squareup.okhttp3:okhttp:4.5.0'
     implementation 'com.squareup.okio:okio:2.5.0'
 
+
+    //eventbus事件分发
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+//    //RxJava的依赖包
+//    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+//    //RxAndroid的依赖包g
+//    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    implementation "io.reactivex.rxjava2:rxjava:2.1.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+
+    implementation project(path: ':jiaozivideoplayer')
+
+
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.4'
+    implementation 'com.danikula:videocache:2.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.9.1'
 }
