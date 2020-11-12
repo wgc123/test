@@ -7,10 +7,12 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.view.Surface;
 
+import com.note.jiaozivideoplayer.JZMediaInterface;
+import com.note.jiaozivideoplayer.Jzvd;
+
 import java.io.IOException;
 
-import cn.jzvd.JZMediaInterface;
-import cn.jzvd.Jzvd;
+
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkTimedText;

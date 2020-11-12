@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cn.jzvd.JZDataSource;
-import cn.jzvd.JzvdStd;
+import com.note.jiaozivideoplayer.JZDataSource;
+import com.note.jiaozivideoplayer.JzvdStd;
+
 
 /**
  * Created by Nathen

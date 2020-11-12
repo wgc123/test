@@ -3,7 +3,8 @@ package com.note.mytest.jiaozi;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import cn.jzvd.JzvdStd;
+import com.note.jiaozivideoplayer.JzvdStd;
+
 
 /**
  * Created by pc on 2018/1/17.

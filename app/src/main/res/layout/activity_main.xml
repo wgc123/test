@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <Button
             android:id="@+id/start_service"
             android:layout_width="match_parent"
@@ -33,92 +33,80 @@
             android:id="@+id/unbindService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="解绑服务"
-            />
+            android:text="解绑服务" />
 
         <Button
             android:id="@+id/btn_shared_preferences"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SharedPreferences"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_zxingg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="二维码操作"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="仿微信界面"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_permissions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="申请权限"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_click"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="处理重复点击"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_scwang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="scwang 下拉刷新"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_okhttp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="okhttp 请求"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_database"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试数据库操作"
-            />
+            android:text="测试数据库操作" />
 
         <Button
             android:id="@+id/btn_html"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Android 加载HTML"
-            />
+            android:text="Android 加载HTML" />
 
         <Button
             android:id="@+id/btn_drawable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="通过drawable自定义圆角、圆形"
-            />
+            android:text="通过drawable自定义圆角、圆形" />
 
         <Button
             android:id="@+id/btn_eventbus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="eventbus"
-            />
+            android:text="eventbus" />
 
         <Button
             android:id="@+id/next"
@@ -132,11 +120,35 @@
             android:layout_height="wrap_content"
             android:text="饺子视频" />
 
+        <Button
+            android:id="@+id/btn_monty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="红包算法" />
+
+        <Button
+            android:id="@+id/btn_algorithm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="十大算法" />
+
+
+        <Button
+            android:id="@+id/btn_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APP启动引导页" />
+
+        <Button
+            android:id="@+id/btn_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="banner 引导页" />
+
         <TextView
             android:id="@+id/tv_show"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

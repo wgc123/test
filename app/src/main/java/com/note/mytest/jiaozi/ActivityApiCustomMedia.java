@@ -2,23 +2,23 @@ package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.JZDataSource;
+import com.note.jiaozivideoplayer.JZMediaSystem;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
 
 import java.io.IOException;
 
-import cn.jzvd.JZDataSource;
-import cn.jzvd.JZMediaSystem;
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.CustomMedia.JZMediaExo;
-import cn.jzvd.demo.CustomMedia.JZMediaIjk;
-import cn.jzvd.demo.CustomMedia.JZMediaSystemAssertFolder;
+
 
 /**
  * Created by Nathen on 2017/11/23.
@@ -31,11 +31,6 @@ public class ActivityApiCustomMedia extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("CustomMediaPlayer");
         setContentView(R.layout.activity_api_custom_mediaplayer);
 
         jzvdStd = findViewById(R.id.videoplayer);

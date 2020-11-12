@@ -19,8 +19,7 @@ public class SharedPreferencesUtil {
         return result;
     }
 
-    public static void putBoolean(Context context, String strKey,
-                                  Boolean strData) {
+    public static void putBoolean(Context context, String strKey, Boolean strData) {
         SharedPreferences activityPreferences = context.getSharedPreferences(
                 spFileName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = activityPreferences.edit();

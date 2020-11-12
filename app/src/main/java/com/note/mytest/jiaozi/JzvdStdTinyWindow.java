@@ -7,9 +7,10 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import cn.jzvd.JZDataSource;
-import cn.jzvd.JZUtils;
-import cn.jzvd.JzvdStd;
+import com.note.jiaozivideoplayer.JZDataSource;
+import com.note.jiaozivideoplayer.JZUtils;
+import com.note.jiaozivideoplayer.JzvdStd;
+
 
 /**
  * 这个类里详细定义了进入小窗的方式，进入小窗之后小窗的操作等

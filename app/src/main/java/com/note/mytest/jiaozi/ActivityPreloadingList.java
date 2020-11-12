@@ -1,10 +1,13 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import cn.jzvd.Jzvd;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.mytest.R;
+
 
 public class ActivityPreloadingList extends AppCompatActivity {
 
@@ -12,13 +15,7 @@ public class ActivityPreloadingList extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("Preloading");
         setContentView(R.layout.activity_api);
-
     }
 
     @Override

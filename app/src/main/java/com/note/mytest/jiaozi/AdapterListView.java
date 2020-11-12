@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
 
 /**
  * Created by Nathen
@@ -49,12 +50,10 @@ public class AdapterListView extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ViewHolder viewHolder;
         if (null == convertView) {
             viewHolder = new ViewHolder();
-            LayoutInflater mInflater = LayoutInflater.from(context);
-            convertView = mInflater.inflate(R.layout.item_videoview, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_videoview, parent, false);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

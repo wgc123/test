@@ -3,10 +3,11 @@ package com.note.mytest.jiaozi;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import cn.jzvd.JZDataSource;
-import cn.jzvd.JZUtils;
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
+import com.note.jiaozivideoplayer.JZDataSource;
+import com.note.jiaozivideoplayer.JZUtils;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+
 
 public class JzvdStdList extends JzvdStd {
     public JzvdStdList(Context context) {

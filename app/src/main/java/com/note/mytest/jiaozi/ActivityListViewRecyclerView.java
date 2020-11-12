@@ -1,14 +1,18 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.MenuItem;
 import android.view.View;
 
-import cn.jzvd.Jzvd;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.mytest.R;
+
 
 /**
  * Created by yujunkui on 16/8/29.
@@ -17,14 +21,10 @@ public class ActivityListViewRecyclerView extends AppCompatActivity {
     RecyclerView recyclerView;
     AdapterRecyclerView adapterVideoList;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("RecyclerView");
         setContentView(R.layout.activity_recyclerview_content);
 
         recyclerView = findViewById(R.id.recyclerview);

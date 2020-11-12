@@ -17,14 +17,15 @@
         android:id="@+id/et_input_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="账号"/>
+        android:layout_margin="10dp"
+        android:hint="账号"
+        />
 
     <EditText
         android:id="@+id/et_input_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:hint="密码"
         android:inputType="number"/>
 
@@ -32,24 +33,28 @@
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="增加" />
+        android:text="增加"
+        android:layout_margin="10dp"/>
 
     <Button
         android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="删除"
+        android:layout_margin="10dp"
         tools:ignore="DuplicateIds" />
 
     <Button
         android:id="@+id/btn_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="修改" />
 
     <Button
         android:id="@+id/btn_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查询" />
+        android:text="查询"
+        android:layout_margin="10dp"/>
 </LinearLayout>

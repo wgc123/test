@@ -2,7 +2,6 @@ package com.note.mytest.jiaozi;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,10 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import androidx.appcompat.app.AppCompatActivity;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen
@@ -29,13 +31,6 @@ public class ActivityListViewMultiHolder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview_normal);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("MultiHolderListView");
-
-
         listView = findViewById(R.id.listview);
         mAdapter = new VideoListAdapter(this);
         listView.setAdapter(mAdapter);
@@ -48,7 +43,9 @@ public class ActivityListViewMultiHolder extends AppCompatActivity {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if (Jzvd.CURRENT_JZVD == null) return;
+                if (Jzvd.CURRENT_JZVD == null) {
+                    return;
+                }
                 int lastVisibleItem = firstVisibleItem + visibleItemCount;
                 int currentPlayPosition = Jzvd.CURRENT_JZVD.positionInList;
 //                Log.e(TAG, "onScrollReleaseAllVideos: " +

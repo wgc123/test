@@ -1,17 +1,19 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.CustomJzvd.JzvdStdTinyWindow;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen on 2017/10/31.
@@ -24,11 +26,6 @@ public class ActivityTinyWindow extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("TinyWindow");
         setContentView(R.layout.activity_tiny_window);
 
         jzvdStdTinyWindow = findViewById(R.id.jz_video);

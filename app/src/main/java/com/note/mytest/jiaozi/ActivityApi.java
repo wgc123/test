@@ -6,24 +6,24 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.JZDataSource;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.App;
+import com.note.mytest.R;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.LinkedHashMap;
-
-import cn.jzvd.JZDataSource;
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
 
 /**
  * Created by Nathen on 16/7/31.
@@ -34,18 +34,13 @@ public class ActivityApi extends AppCompatActivity {
     SensorManager mSensorManager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("Api");
         setContentView(R.layout.activity_api);
 
         mJzvdStd = findViewById(R.id.jz_video);
         LinkedHashMap map = new LinkedHashMap();
-        String proxyUrl = ApplicationDemo.getProxy(this).getProxyUrl(VideoConstant.videoUrls[0][9]);
+        String proxyUrl = App.getProxy(this).getProxyUrl(VideoConstant.videoUrls[0][9]);
         map.put("高清", proxyUrl);
         map.put("标清", VideoConstant.videoUrls[0][6]);
         map.put("普清", VideoConstant.videoUrlList[0]);

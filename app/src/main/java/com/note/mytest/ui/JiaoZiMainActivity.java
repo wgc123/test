@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.note.jiaozivideoplayer.Jzvd;
 import com.note.mytest.R;
 import com.note.mytest.jiaozi.ActivityApi;

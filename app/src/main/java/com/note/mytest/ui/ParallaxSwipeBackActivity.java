@@ -25,7 +25,6 @@ import java.lang.reflect.Field;
 /**
  * @Title: ${file_name}
  * @Description: 带视觉差的滑动返回
- * Created by bushijie33@gmail.com on 2015/7/5.
  */
 public class ParallaxSwipeBackActivity extends AppCompatActivity implements SlidingPaneLayout.PanelSlideListener {
 

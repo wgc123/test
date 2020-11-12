@@ -6,8 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.R;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen

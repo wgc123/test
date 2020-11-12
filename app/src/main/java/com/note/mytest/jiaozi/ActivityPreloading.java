@@ -1,15 +1,17 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.CustomMedia.JZMediaIjk;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
+
 
 public class ActivityPreloading extends AppCompatActivity {
 

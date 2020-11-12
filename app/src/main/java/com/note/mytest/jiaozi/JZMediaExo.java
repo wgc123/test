@@ -35,10 +35,10 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
+import com.note.jiaozivideoplayer.JZMediaInterface;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.mytest.R;
 
-import cn.jzvd.JZMediaInterface;
-import cn.jzvd.Jzvd;
-import cn.jzvd.demo.R;
 
 /**
  * Created by MinhDV on 5/3/18.

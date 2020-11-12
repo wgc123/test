@@ -26,7 +26,6 @@ import butterknife.OnClick;
  */
 public class EventBusActivity extends BaseActivity {
 
-
     @BindView(R.id.btn_st)
     Button btnSt;
     @BindView(R.id.btn_notifcation)

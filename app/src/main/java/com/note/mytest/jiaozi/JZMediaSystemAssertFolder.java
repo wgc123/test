@@ -8,11 +8,13 @@ import android.media.PlaybackParams;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.RequiresApi;
 import android.view.Surface;
 
-import cn.jzvd.JZMediaInterface;
-import cn.jzvd.Jzvd;
+import androidx.annotation.RequiresApi;
+
+import com.note.jiaozivideoplayer.JZMediaInterface;
+import com.note.jiaozivideoplayer.Jzvd;
+
 
 /**
  * Created by Nathen on 2017/11/8.
@@ -122,9 +124,13 @@ public class JZMediaSystemAssertFolder extends JZMediaInterface implements Media
 
     @Override
     public void setVolume(float leftVolume, float rightVolume) {
-        if (mMediaHandler == null) return;
+        if (mMediaHandler == null) {
+            return;
+        }
         mMediaHandler.post(() -> {
-            if (mediaPlayer != null) mediaPlayer.setVolume(leftVolume, rightVolume);
+            if (mediaPlayer != null) {
+                mediaPlayer.setVolume(leftVolume, rightVolume);
+            }
         });
     }
 

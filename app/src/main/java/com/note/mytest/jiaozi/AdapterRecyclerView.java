@@ -2,16 +2,18 @@ package com.note.mytest.jiaozi;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
+import androidx.recyclerview.widget.RecyclerView;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.MyViewHolder> {
 

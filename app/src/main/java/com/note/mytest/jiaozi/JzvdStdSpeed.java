@@ -5,8 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.R;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 public class JzvdStdSpeed extends JzvdStd {
     TextView tvSpeed;
@@ -27,6 +28,7 @@ public class JzvdStdSpeed extends JzvdStd {
         tvSpeed.setOnClickListener(this);
     }
 
+    @Override
     public void setScreenNormal() {
         super.setScreenNormal();
         tvSpeed.setVisibility(View.GONE);
@@ -35,8 +37,9 @@ public class JzvdStdSpeed extends JzvdStd {
     @Override
     public void setScreenFullscreen() {
         super.setScreenFullscreen();
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             tvSpeed.setVisibility(View.VISIBLE);
+        }
 
         if (jzDataSource.objects == null) {
             Object[] object = {2};

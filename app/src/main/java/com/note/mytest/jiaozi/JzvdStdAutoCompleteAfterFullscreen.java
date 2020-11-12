@@ -6,9 +6,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.WindowManager;
 
-import cn.jzvd.JZMediaInterface;
-import cn.jzvd.JZUtils;
-import cn.jzvd.JzvdStd;
+import com.note.jiaozivideoplayer.JZMediaInterface;
+import com.note.jiaozivideoplayer.JZUtils;
+import com.note.jiaozivideoplayer.JzvdStd;
+
 
 /**
  * 全屏状态播放完成，不退出全屏

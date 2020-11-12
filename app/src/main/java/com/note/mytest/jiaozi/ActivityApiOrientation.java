@@ -2,14 +2,16 @@ package com.note.mytest.jiaozi;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen on 2016/12/30.
@@ -20,11 +22,6 @@ public class ActivityApiOrientation extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("Orientation");
         setContentView(R.layout.activity_orientation);
         mJzvdStd = findViewById(R.id.jz_video);
         mJzvdStd.setUp(VideoConstant.videoUrlList[0], "饺子不信"

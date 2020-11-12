@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cn.jzvd.JzvdStd;
-import cn.jzvd.demo.R;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * 这个本质上就是播放的时候不隐藏缩略图
@@ -27,7 +28,7 @@ public class JzvdStdMp3 extends JzvdStd {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == cn.jzvd.R.id.thumb &&
+        if (v.getId() == R.id.thumb &&
                 (state == STATE_PLAYING ||
                         state == STATE_PAUSE)) {
             onClickUiToggle();

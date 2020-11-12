@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
 
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
 
 /**
  * 适配了普通的Activity，如果不适配并且不继承AppCompatActivity的话会出现Context空指针的情况

@@ -1,8 +1,7 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
@@ -10,11 +9,15 @@ import android.webkit.WebView;
 import android.widget.AbsoluteLayout;
 import android.widget.LinearLayout;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import cn.jzvd.JZUtils;
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
+import com.bumptech.glide.Glide;
+import com.note.jiaozivideoplayer.JZUtils;
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.jiaozivideoplayer.JzvdStd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen on 16/10/13.
@@ -26,12 +29,6 @@ public class ActivityWebView extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("WebView");
-        getWindow().setBackgroundDrawable(null);
         setContentView(R.layout.activity_webview);
         mWebView = findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);

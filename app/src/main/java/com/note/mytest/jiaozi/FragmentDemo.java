@@ -2,14 +2,17 @@ package com.note.mytest.jiaozi;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-import cn.jzvd.Jzvd;
+import androidx.fragment.app.Fragment;
+
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.mytest.R;
+
 
 /**
  * Created by Nathen on 2017/6/9.
@@ -47,7 +50,9 @@ public class FragmentDemo extends Fragment {
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 //                Jzvd.onScrollReleaseAllVideos(view, firstVisibleItem, visibleItemCount, totalItemCount);
 
-                if (Jzvd.CURRENT_JZVD == null) return;
+                if (Jzvd.CURRENT_JZVD == null) {
+                    return;
+                }
                 int lastVisibleItem = firstVisibleItem + visibleItemCount;
                 int currentPlayPosition = Jzvd.CURRENT_JZVD.positionInList;
 //                Log.e(TAG, "onScrollReleaseAllVideos: " +

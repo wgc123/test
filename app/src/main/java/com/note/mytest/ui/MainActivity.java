@@ -1,5 +1,6 @@
 package com.note.mytest.ui;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -10,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
@@ -22,10 +24,17 @@ import com.note.mytest.okhttp.Data;
 import com.note.mytest.okhttp.HttpCallback;
 import com.note.mytest.okhttp.HttpHelper;
 import com.note.mytest.tool.ClickProxy;
+import com.note.mytest.tool.CustomDialog;
 import com.note.testlibrary.tool.BaseActivity;
 import com.note.testlibrary.tool.MyService;
 import com.note.testlibrary.tool.WGCLogUtils;
 import com.note.testlibrary.tool.WGCSharedPreferencesUtils;
+import com.permissionx.guolindev.PermissionX;
+import com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam;
+import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
+import com.permissionx.guolindev.callback.RequestCallback;
+import com.permissionx.guolindev.request.ExplainScope;
+import com.permissionx.guolindev.request.ForwardScope;
 import com.sunchen.netbus.NetStatusBus;
 import com.sunchen.netbus.annotation.NetSubscribe;
 import com.sunchen.netbus.type.NetType;
@@ -34,6 +43,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.IdentityHashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -83,6 +93,10 @@ public class MainActivity extends BaseActivity {
     Button next;
     @BindView(R.id.btn_jiaozi)
     Button btnJiaoZi;
+    @BindView(R.id.btn_monty)
+    Button btnMoney;
+    @BindView(R.id.btn_algorithm)
+    Button btnAlgorithm;
     @BindView(R.id.tv_show)
     TextView textView;
     /**
@@ -113,12 +127,46 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        PermissionX.init(MainActivity.this)
+                .permissions(Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                .explainReasonBeforeRequest()
+                .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
+                    @Override
+                    public void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest) {
+                        CustomDialog customDialog = new CustomDialog(MainActivity.this, "需要以下权限才能继续", deniedList);
+                        scope.showRequestReasonDialog(customDialog);
+                    }
+                })
+                .onForwardToSettings(new ForwardToSettingsCallback() {
+                    @Override
+                    public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+                        scope.showForwardToSettingsDialog(deniedList, "请在设置中允许以下权限", "允许");
+                    }
+                })
+                .request(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            startService.setEnabled(true);
+                            Toast.makeText(MainActivity.this, "授予所有权限", Toast.LENGTH_SHORT).show();
+                        } else {
+                            startService.setEnabled(false);
+                            Toast.makeText(MainActivity.this, "请开启权限", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this, "以下权限被拒绝：" + deniedList, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     @OnClick({R.id.start_service, R.id.stop_service, R.id.bindService, R.id.unbindService, R.id.btn_shared_preferences,
             R.id.btn_zxingg, R.id.btn_fragment, R.id.btn_permissions, R.id.btn_click, R.id.btn_scwang, R.id.btn_okhttp,
-            R.id.btn_database, R.id.btn_html, R.id.btn_drawable, R.id.btn_eventbus, R.id.next,R.id.btn_jiaozi})
+            R.id.btn_database, R.id.btn_html, R.id.btn_drawable, R.id.btn_eventbus, R.id.next,
+            R.id.btn_jiaozi,R.id.btn_monty,R.id.btn_algorithm,R.id.btn_viewpager,R.id.btn_banner})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -164,7 +212,14 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_permissions:
-                XXPermissions.with(MainActivity.this).permission(Permission.CAMERA).permission(Permission.RECORD_AUDIO).permission(Permission.READ_PHONE_STATE).permission(Permission.WRITE_EXTERNAL_STORAGE).permission(Permission.READ_EXTERNAL_STORAGE).permission(Permission.Group.CALENDAR).request(new OnPermission() {
+                XXPermissions.with(MainActivity.this)
+                        .permission(Permission.CAMERA)
+                        .permission(Permission.RECORD_AUDIO)
+                        .permission(Permission.READ_PHONE_STATE)
+                        .permission(Permission.WRITE_EXTERNAL_STORAGE)
+                        .permission(Permission.READ_EXTERNAL_STORAGE)
+                        .permission(Permission.Group.CALENDAR)
+                        .request(new OnPermission() {
                     @Override
                     public void hasPermission(List<String> granted, boolean all) {
                         if (all) {
@@ -246,6 +301,22 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_jiaozi:
                 intent = new Intent(MainActivity.this, JiaoZiMainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_monty: //红包算法
+                intent = new Intent(MainActivity.this, MontyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_algorithm:
+                intent = new Intent(MainActivity.this, AlgorithmActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_viewpager:
+                intent = new Intent(MainActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_banner:
+                intent = new Intent(MainActivity.this, BannerActivity.class);
                 startActivity(intent);
                 break;
             default:

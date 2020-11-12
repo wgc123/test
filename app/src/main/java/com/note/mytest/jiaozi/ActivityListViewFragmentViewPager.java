@@ -1,17 +1,21 @@
 package com.note.mytest.jiaozi;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.note.jiaozivideoplayer.Jzvd;
+import com.note.mytest.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.Jzvd;
 
 /**
  * Created by Nathen
@@ -24,12 +28,6 @@ public class ActivityListViewFragmentViewPager extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview_viewpager);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setTitle("ActivityListViewFragmentViewPager");
-
         fragmentList.add(new FragmentDemo().setIndex(0));
         fragmentList.add(new FragmentDemo().setIndex(1));
         fragmentList.add(new FragmentDemo().setIndex(2));
