@@ -29,7 +29,6 @@ ext {
     ]
 
     dependencies = [
-
             // appcompat
             "appcompat"       : "androidx.appcompat:appcompat:${dependVersion.appcompat}",
             "constraintlayout": "androidx.constraintlayout:constraintlayout:${dependVersion.constraintlayout}"
