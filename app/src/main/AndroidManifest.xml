@@ -35,24 +35,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        banner-->
-        <activity android:name=".ui.BannerActivity"/>
+        <activity android:name=".ui.FruitActivity"
+            android:theme="@style/FruitActivityTheme"/>
+        <activity
+            android:name=".ui.MaterialDesignActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.BannerActivity" />
         <activity android:name=".banner.RecyclerViewBannerActivity" />
         <activity android:name=".banner.ConstraintLayoutBannerActivity" />
-        <activity android:name=".banner.GalleryActivity"></activity>
+        <activity android:name=".banner.GalleryActivity" />
         <activity android:name=".banner.TouTiaoActivity" />
         <activity android:name=".banner.TVActivity" />
         <activity
             android:name=".banner.Vp2FragmentRecyclerviewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-<!--        viewpager-->
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- viewpager -->
         <activity android:name=".ui.ViewPagerActivity" />
         <activity android:name=".ui.CollectionActivity" />
         <activity android:name=".ui.AlgorithmActivity" />
-        <activity android:name=".ui.MontyActivity" />
-
-<!--        饺子视频播放器-->
+        <activity android:name=".ui.MontyActivity" /> <!-- 饺子视频播放器 -->
         <activity android:name=".ui.JiaoZiMainActivity" />
         <activity android:name=".ui.NextActivity" />
         <activity android:name=".ui.EventBusActivity" />

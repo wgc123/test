@@ -8,6 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 
+/**
+ * @author wgc
+ */
 public class GuideViewPagerAdapter extends PagerAdapter {
     private List<View> views;
 

@@ -1,9 +1,16 @@
 package com.note.mytest.ui;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -12,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.NotificationCompat;
 
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
@@ -166,10 +175,32 @@ public class MainActivity extends BaseActivity {
     @OnClick({R.id.start_service, R.id.stop_service, R.id.bindService, R.id.unbindService, R.id.btn_shared_preferences,
             R.id.btn_zxingg, R.id.btn_fragment, R.id.btn_permissions, R.id.btn_click, R.id.btn_scwang, R.id.btn_okhttp,
             R.id.btn_database, R.id.btn_html, R.id.btn_drawable, R.id.btn_eventbus, R.id.next,
-            R.id.btn_jiaozi,R.id.btn_monty,R.id.btn_algorithm,R.id.btn_viewpager,R.id.btn_banner})
+            R.id.btn_jiaozi,R.id.btn_monty,R.id.btn_algorithm,R.id.btn_viewpager,R.id.btn_banner,
+            R.id.start_notification,R.id.btn_material})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
+            case R.id.btn_material:
+                startActivity(MaterialDesignActivity.class);
+                break;
+            case R.id.start_notification:
+                NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                    NotificationChannel channel = new NotificationChannel("normal", "Normal",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+                    manager.createNotificationChannel(channel);
+                }
+                intent = new Intent(this,MainActivity.class);
+                PendingIntent pendingIntent =  PendingIntent.getActivity(this, 0, intent, 0);
+                Notification notification = new NotificationCompat.Builder(this,"normal")
+                        .setContentTitle("通知栏")
+                        .setContentText("这是一条通知栏信息")
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentIntent(pendingIntent)  // 点击通知栏进入页面
+                        .setAutoCancel(true) // 点击通知栏取消显示
+                        .build();
+                manager.notify(1, notification);
+                break;
             case R.id.start_service:
                 //构建启动服务的Intent对象
                 intent = new Intent(MainActivity.this, MyService.class);

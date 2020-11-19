@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/backUp"
+        android:title="Item"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/delete"
+        android:title="delete"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/setting"
+        android:title="设置"
+        android:icon="@drawable/ic_launcher_background"
+        app:showAsAction="never" />
+</menu>

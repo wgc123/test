@@ -12,6 +12,19 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Material Design UI" />
+
+        <Button
+            android:id="@+id/start_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通知栏" />
+
+        <Button
             android:id="@+id/start_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
